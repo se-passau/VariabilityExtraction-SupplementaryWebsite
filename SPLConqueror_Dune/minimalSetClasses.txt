@@ -1,0 +1,31 @@
+Dune::GeometryType::simplex
+Dune::GeometryType::cube
+
+Dune::OneDGrid
+Dune::YaspGrid<dim>
+Dune::ALUGrid < dim, dim, basicElementType == Dune::GeometryType::cube ? Dune::cube : Dune::simplex, Dune::conforming >
+Dune::ALUGrid < dim, dim, basicElementType == Dune::GeometryType::cube ? Dune::cube : Dune::simplex, Dune::nonconforming >
+Dune::UGGrid<dim>
+
+Dune::PDELab::QkLocalFiniteElementMap<GV, GV::ctype, Real, degree>
+Dune::PDELab::PkLocalFiniteElementMap<GV, GV::ctype, Real, degree>
+Dune::PDELab::QkDGLocalFiniteElementMap<GV::ctype, Real, degree, dim>
+Dune::PDELab::OPBLocalFiniteElementMap<GV::ctype, Real, degree, dim, basicElementType, Dune::GMPField<512>, Dune::PB::Qk>
+Dune::PDELab::OPBLocalFiniteElementMap<GV::ctype, Real, degree, dim, basicElementType, Dune::GMPField<512>, Dune::PB::Pk>
+
+Dune::PDELab::ConformingDirichletConstraints
+Dune::PDELab::NoConstraints
+
+Dune::PDELab::ISTLBackend_SEQ_SuperLU
+Dune::PDELab::ISTLBackend_SEQ_LOOP_Jac
+Dune::PDELab::ISTLBackend_SEQ_CG_ILU0
+Dune::PDELab::ISTLBackend_SEQ_CG_Jac
+Dune::PDELab::ISTLBackend_SEQ_CG_SSOR
+Dune::PDELab::ISTLBackend_SEQ_CG_AMG_SSOR
+Dune::PDELab::ISTLBackend_SEQ_BCGS_Jac
+Dune::PDELab::ISTLBackend_SEQ_BCGS_SSOR
+Dune::PDELab::ISTLBackend_SEQ_MINRES_SSOR
+
+Dune::PDELab::StationaryLinearProblemSolver<GO, LS, U>
+Dune::PDELab::Newton<GO, LS, U, U>
+

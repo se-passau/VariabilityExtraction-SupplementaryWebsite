@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{B6FE1697-88BC-4F52-AEE2-C1812EB55E6B}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>DuneAnalyzer</RootNamespace>
+    <AssemblyName>DuneAnalyzer</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Externalconsole>true</Externalconsole>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Externalconsole>true</Externalconsole>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="SPLConqueror_Core">
+      <HintPath>..\..\SPLConqueror\SPLConqueror\SPLConqueror\bin\Debug\SPLConqueror_Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationInternals\ComplexConstraint.cs" />
+    <Compile Include="ApplicationInternals\Constraint.cs" />
+    <Compile Include="ApplicationInternals\DuneApplication.cs" />
+    <Compile Include="MiniShell.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="ProgramUtil.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DuneInternals\DuneClass.cs" />
+    <Compile Include="DuneInternals\DuneEnum.cs" />
+    <Compile Include="DuneInternals\DuneFeature.cs" />
+    <Compile Include="DuneInternals\DuneTypeDef.cs" />
+    <Compile Include="DuneInternals\Enum.cs" />
+    <Compile Include="DuneInternals\MethodList.cs" />
+    <Compile Include="Shell.cs" />
+    <Compile Include="ApplicationInternals\SimpleConstraint.cs" />
+    <Compile Include="DuneInternals\TemplateObject.cs" />
+    <Compile Include="DuneInternals\TemplateTree.cs" />
+    <Compile Include="ApplicationInternals\VariationPoint.cs" />
+    <Compile Include="XMLParser.cs" />
+    <Compile Include="util\DuneAnalyzationLogger.cs" />
+    <Compile Include="util\Range.cs" />
+    <Compile Include="util\RefersToAliasing.cs" />
+    <Compile Include="DuneInternals\DuneVariable.cs" />
+    <Compile Include="DuneInternals\DuneEnumValue.cs" />
+    <Compile Include="DuneInternals\DuneValue.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

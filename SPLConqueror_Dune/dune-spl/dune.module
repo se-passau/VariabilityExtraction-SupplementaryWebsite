@@ -1,0 +1,68 @@
+################################
+# Dune module information file #
+################################
+
+#Name of the module
+Module: dune-spl
+Version: 0.1
+Maintainer: Christian Kaltenecker <christian_kalt@yahoo.de>, Christian Engwer <christian.engwer@uni-muenster.de>, Alexander Grebhahn <grebhahn@fim.uni-passau.de>, Andreas Nüßing <andreas.nuessing@uni-muenster.de>
+#depending on
+Depends: dune-common dune-geometry dune-grid dune-istl dune-localfunctions dune-typetree dune-pdelab
+Suggests: dune-alugrid
+
+parse_doxyfile () {
+  command=$1
+  dir=$2/doc/doxygen
+  shift 2
+  for i in Doxylocal Doxyfile.in Doxyfile; do
+    if test -f $dir/$i; then
+      DOXYFILE=$i
+      break
+    fi
+  done
+  if test -z "$DOXYFILE"; then
+    echo "ERROR: broken dune module!"
+    echo "       doc/doxygen/Doxyfile (or Doxyfile.in, or Doxylocal) not found in $1!"
+    exit 1
+  fi
+  MK=$(pwd)/doxyfile_parser.mk
+  while test $# -ne 0; do
+    variable=$1
+    export $variable="$(cd $dir; \
+      make -f $MK $command variable=$variable DOXYFILE=$DOXYFILE | tr '\012' ' ')" &> /dev/null
+    shift
+    # eval echo $variable: \$$variable
+  done
+}
+
+read_doxy_variables () {
+  path=$1
+  mod=$1
+  OPTIONS="PREDEFINED EXTRA_PACKAGES"
+  PATHOPTIONS="INPUT IMAGE_PATH EXCLUDE EXAMPLE_PATH"
+  parse_doxyfile print $path $OPTIONS
+  parse_doxyfile readlink $path $PATHOPTIONS
+  echo "# configuration $mod" >> $INPUTLIST
+  echo "STRIP_FROM_INC_PATH += $path" >> $INPUTLIST
+  for opt in $OPTIONS $PATHOPTIONS; do
+	if eval test -n \"\$$opt\"; then
+	  eval echo \"$opt += \$$opt\" >> $INPUTLIST
+	fi
+  done
+}
+
+run_configure () {
+  INPUTLIST=doc/doxygen/inputlist
+  rm -f $INPUTLIST
+  eval sugs=\$SUGS_$module
+  eval deps=\$DEPS_$module
+  for mod in $deps $sugs; do
+	  dep=$(fix_variable_name $mod)
+      if eval test x\$HAVE_$dep == xyes; then
+		  echo register $mod for global doxygen documentation
+		  eval modpath=\$PATH_$dep
+		  read_doxy_variables $modpath $mod
+	  fi
+  done
+  run_default_configure
+}

@@ -1,0 +1,5 @@
+log ./out.txt
+vm ./VariabilityModelSampling.xml
+binary random numConfigs:asTW2 seed:15
+numeric centralcomposite
+printconfigs ./out.csv

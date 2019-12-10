@@ -1,0 +1,6 @@
+Dune::YaspGrid < dim >
+Dune::PDELab::QkLocalFiniteElementMap < GV, GV::ctype, Real, degree >
+Dune::PDELab::NoConstraints
+Dune::PDELab::ISTLBackend_SEQ_CG_ILU0
+Dune::PDELab::StationaryLinearProblemSolver < GO, LS, U >
+Dune::GeometryType::cube
