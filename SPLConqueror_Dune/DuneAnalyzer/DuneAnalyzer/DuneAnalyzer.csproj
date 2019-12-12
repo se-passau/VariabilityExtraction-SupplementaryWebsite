@@ -7,7 +7,7 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>DuneAnalyzer</RootNamespace>
     <AssemblyName>DuneAnalyzer</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
   </PropertyGroup>
@@ -34,6 +34,9 @@
   <ItemGroup>
     <Reference Include="SPLConqueror_Core">
       <HintPath>..\..\SPLConqueror\SPLConqueror\SPLConqueror\bin\Debug\SPLConqueror_Core.dll</HintPath>
+    </Reference>
+    <Reference Include="SPLConqueror_Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\..\..\SPLConqueror_Core.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />

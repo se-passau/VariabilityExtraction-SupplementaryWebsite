@@ -1,0 +1,142 @@
+Title: Lightweight, Semi-Automatic Variability Extraction: A Case Study on Scientific Computing (Supplementary Website)
+Authors: Alexander Grebhahn, Christian Kaltenecker, Christian Engwer, Norbert Siegmund, Sven Apel
+Journal: Empirical Software Engineering
+Corresponding Author: Christian Kaltenecker (Saarland University, kaltenec@cs.uni-saarland.de)
+
+---------------------------------------------------------
+--Variantpoint:BasicType
+
+Default:Dune::GeometryType::cube
+Alternatives:
+    Dune::GeometryType::simplex
+    Dune::GeometryType::cube
+    Dune::GeometryType::pyramid
+    Dune::GeometryType::prism
+    Dune::GeometryType::extended
+    Dune::GeometryType::none
+
+	
+All alternatives found in one run.
+----------------------------------------------------------
+--VariantPoint:Grid
+
+Default: Dune::YaspGrid<dim> (calls defaultimpl with GridDefaultImplementation<dim,dim,typename Coordinates::ctype,YaspGridFamily<dim, Coordinates> >) 
+Alternatives:
+    Dune::YaspGrid<dim,EquidistantCoordinates<double, dim>>
+
+Default: Dune::UGGrid<dim> (calls defaultimpl with  GridDefaultImplementation  <dim, dim, double, UGGridFamily<dim> >)
+Alternatives: 
+    Dune::UGGrid<dim>
+
+Default: GridDefaultImplementation<dim,dim, basicElementType, GridFam>
+Alternatives:
+    throws error(cant find itself)
+
+Default: OneDGrid (calls defaultimpl with GridDefaultImplementation <1, 1,typename OneDGridGeometry<0,1,OneDGrid>::ctype, OneDGridFamily>)
+Alternatives:
+    Dune::OneDGrid
+
+----------------------------------------------------------
+
+--Variationpoint:FiniteElementMap
+
+Default: QkDGLocalFiniteElementMap || OPBLocalFiniteElementMap
+Alternatives: 
+	Dune::PDELab::QkDGLocalFiniteElementMap<GV::ctype, Real, degree, dim>
+	Dune::PDELab::BDM1Cube2DLocalFiniteElementMap<GV,D,R>
+	Dune::PDELab::BDM1Simplex2DLocalFiniteElementMap<GV,D,R>
+	Dune::PDELab::P0LocalFiniteElementMap<GV::ctype, Real, dim>
+	Dune::PDELab::Pk1dLocalFiniteElementMap<GV::ctype, Real>
+	Dune::PDELab::fem::PkLocalFiniteElementMapBase<GV,D,R, degree,1>
+	Dune::PDELab::PkQkLocalFiniteElementMap<GV::ctype, Real, dim,6>
+	Dune::PDELab::QkLocalFiniteElementMap<GV,D,R, degree>
+	Dune::PDELab::RannacherTurekLocalFiniteElementMap<GV::ctype, Real, dim>
+	Dune::PDELab::RT0Cube2DLocalFiniteElementMap<GV,D,R>
+	Dune::PDELab::RT0Cube3DLocalFiniteElementMap<GV,D,R>
+	Dune::PDELab::RT0Simplex2DLocalFiniteElementMap<GV,D,R>
+	Dune::PDELab::RT1Cube2DLocalFiniteElementMap<GV,D,R>
+	Dune::PDELab::RT1Cube3DLocalFiniteElementMap<GV,D,R>
+	Dune::PDELab::RT1Simplex2DLocalFiniteElementMap<GV,D,R>
+	Dune::PDELab::RT2Cube2DLocalFiniteElementMap<GV,D,R>
+	Dune::PDELab::VariableMonomLocalFiniteElementMap<class M,GV::ctype, Real, dim,6>
+	Dune::PDELab::VariableOPBLocalFiniteElementMap<class M,GV::ctype, Real, dim,R,6,Dune::GeometryType::cube>
+	Dune::PDELab::VariableQkDGLocalFiniteElementMap<class M,GV::ctype, Real, dim,6>
+
+Default: Dune::PDELab::OPBLocalFiniteElementMap<GV::ctype, Real, degree, dim, basicElementType, Dune::GMPField<512>, Dune::PB::Qk>
+Alternatives: alle von QkDGLocalFiniteElementMap
+    Dune::PDELab::OPBLocalFiniteElementMap<GV::ctype, Real, degree, dim, basicElementType, Dune::GMPField<512>, Dune::PB::Qk>
+
+Default: Dune::PDELab::OPBLocalFiniteElementMap<GV::ctype, Real, degree, dim, basicElementType, Dune::GMPField<512>, Dune::PB::Pk>
+Alternatives: alle von QkDGLocalFiniteElementMap
+    Dune::PDELab::OPBLocalFiniteElementMap<GV::ctype, Real, degree, dim, basicElementType, Dune::GMPField<512>, Dune::PB::Pk>
+
+
+Default: Dune::PDELab::PkLocalFiniteElementMap<GV, GV::ctype, Real, degree>
+Alternatives:
+    Dune::PDELab::PkLocalFiniteElementMap<GV, GV::ctype, Real, degree>
+
+Default: QkLocalFiniteElementMap<GV, GV::ctype, Real, degree>
+Alternatives: 
+    Dune::PDELab::QkLocalFiniteElementMap<GV, GV::ctype, Real, degree>
+    Dune::PDELab::BDM1Cube2DLocalFiniteElementMap<GV, GV::ctype, Real>
+    Dune::PDELab::BDM1Simplex2DLocalFiniteElementMap<GV, GV::ctype, Real>
+    Dune::PDELab::EdgeS0_5FiniteElementMap<class Geometry,class VertexOrderFactory,class RF>
+    Dune::PDELab::PkLocalFiniteElementMap<GV, GV::ctype, Real, degree>
+    Dune::PDELab::fem::PkLocalFiniteElementMapBase<GV, GV::ctype, Real, degree,1>
+    Dune::PDELab::fem::PkLocalFiniteElementMapBase<GV, GV::ctype, Real, degree,2>
+    Dune::PDELab::fem::PkLocalFiniteElementMapBase<GV, GV::ctype, Real, degree,3>
+    Dune::PDELab::RT0Cube2DLocalFiniteElementMap<GV, GV::ctype, Real>
+    Dune::PDELab::RT0Cube3DLocalFiniteElementMap<GV, GV::ctype, Real>
+    Dune::PDELab::RT0Simplex2DLocalFiniteElementMap<GV, GV::ctype, Real>
+    Dune::PDELab::RT1Cube2DLocalFiniteElementMap<GV, GV::ctype, Real>
+    Dune::PDELab::RT1Cube3DLocalFiniteElementMap<GV, GV::ctype, Real>
+    Dune::PDELab::RT1Simplex2DLocalFiniteElementMap<GV, GV::ctype, Real>
+    Dune::PDELab::RT2Cube2DLocalFiniteElementMap<GV, GV::ctype, Real
+
+----------------------------------------------------------
+
+--Variationpoint: Constraints
+
+Default: Dune::PDELab::NoConstraints
+Alternatives:
+	Dune::PDELab::NoConstraints
+	
+Default: ConformingDirichletConstraints
+Alternatives: 
+	Dune::PDELab::ConformingDirichletConstraints
+     Dune::PDELab::OverlappingConformingDirichletConstraints
+     Dune::PDELab::RT0Constraints
+	
+----------------------------------------------------------
+
+--Variationpoint: ISTLBackend
+Default: ISTLBackend_SEQ_CG_ILU0
+Alternatives: 
+	Dune::PDELab::ISTLBackend_SEQ_CG_ILU0
+     Dune::PDELab::ISTLBackend_SEQ_BCGS_ILU0
+     Dune::PDELab::ISTLBackend_SEQ_BCGS_ILUn
+     Dune::PDELab::ISTLBackend_SEQ_BCGS_Jac
+     Dune::PDELab::ISTLBackend_SEQ_BCGS_SSOR
+     Dune::PDELab::ISTLBackend_SEQ_CG_ILUn
+     Dune::PDELab::ISTLBackend_SEQ_CG_Jac
+     Dune::PDELab::ISTLBackend_SEQ_CG_SSOR
+     Dune::PDELab::ISTLBackend_SEQ_ExplicitDiagonal
+     Dune::PDELab::ISTLBackend_SEQ_GMRES_ILU0
+     Dune::PDELab::ISTLBackend_SEQ_LOOP_Jac
+     Dune::PDELab::ISTLBackend_SEQ_MINRES_SSOR
+     Dune::PDELab::ISTLBackend_SEQ_SuperLU
+     Dune::PDELab::ISTLBackend_SEQ_UMFPack
+
+----------------------------------------------------------
+
+--Variationpoint: SLP
+
+Here, we find only the original class.
+
+Default: Dune::PDELab::Newton<GO, LS, U, U>
+Alternative:
+	Dune::PDELab::Newton<GO, LS, U, U>
+	
+Default: Dune::PDELab::StationaryLinearProblemSolver<GO, LS, U>
+Alternative:
+	Dune::PDELab::StationaryLinearProblemSolver<GO, LS, U>
