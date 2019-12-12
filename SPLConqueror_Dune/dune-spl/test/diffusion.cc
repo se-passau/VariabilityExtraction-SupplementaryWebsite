@@ -79,7 +79,7 @@ int main(int argc, char** argv)
     // ##### variation point #####
     // ### select type of grid elements
     
-    //VARIATIONPOINT(BET; const Dune::GeometryType::BasicType; basicElementType; Dune::GeometryType::cube;)
+    //VARIATIONPOINT(BET; const Dune::GeometryType::BasicType basicElementType; Dune::GeometryType::cube;)
     const Dune::GeometryType::BasicType basicElementType = Dune::GeometryType::cube;
     //const Dune::GeometryType::BasicType basicElementType = Dune::GeometryType::simplex;	
     
@@ -89,7 +89,7 @@ int main(int argc, char** argv)
     // ### works with cubes)
 
     
-    //VARIATIONPOINT(GRID; using ; Grid; Dune::GridDefaultImplementation<dim,dim,typename Coordinates::ctype,YaspGridFamily<dim>>:;)
+    //VARIATIONPOINT(GRID; using Grid; Dune::GridDefaultImplementation<dim,dim,typename Coordinates::ctype,YaspGridFamily<dim>>:;)
     using Grid = Dune::GridDefaultImplementation<dim,dim,typename Coordinates::ctype,YaspGridFamily<dim>>:;
     //using Grid = Dune::YaspGrid<dim>; // according to the xml File, there have to be coordinates here. As a consequence, we need two parameters.
     //using Grid = Dune::OneDGrid;
@@ -119,7 +119,7 @@ int main(int argc, char** argv)
     // ### construct finite element map. The degree is a template parameter of the finite element
     // ### map. Note that some FEMs only work for certain element types (eg QkLocalFiniteElementMap only
     // ### works for cubes, while PkLocalFiniteElementMap only works for simplex)
-    //VARIATIONPOINT(FEM; using ; FEM; Dune::PDELab::QkLocalFiniteElementMap<GV, GV::ctype, Real, degree>;)
+    //VARIATIONPOINT(FEM; using FEM; Dune::PDELab::QkLocalFiniteElementMap<GV, GV::ctype, Real, degree>;)
     using FEM = Dune::PDELab::QkLocalFiniteElementMap<GV, GV::ctype, Real, degree>;
     //using FEM = Dune::PDELab::PkLocalFiniteElementMap<GV, GV::ctype, Real, degree>;
     //using FEM = Dune::PDELab::QkDGLocalFiniteElementMap<GV::ctype, Real, degree, dim>;
@@ -133,7 +133,7 @@ int main(int argc, char** argv)
 
     // ##### variation point #####
     // ### select type of Dirichlet condition.
-    //VARIATIONPOINT(CON; using ; CON; Dune::PDELab::ConformingDirichletConstraints;)
+    //VARIATIONPOINT(CON; using CON; Dune::PDELab::ConformingDirichletConstraints;)
     using CON = Dune::PDELab::ConformingDirichletConstraints;
     //using CON = Dune::PDELab::NoConstraints;
 
@@ -173,7 +173,7 @@ int main(int argc, char** argv)
 
     // ##### variation point #####
     // ### select linear solver and preconditioner
-    //VARIATIONPOINT(LS; using ; LS; Dune::PDELab::ISTLBackend_SEQ_CG_ILU0;)
+    //VARIATIONPOINT(LS; using LS; Dune::PDELab::ISTLBackend_SEQ_CG_ILU0;)
     using LS = Dune::PDELab::ISTLBackend_SEQ_CG_ILU0;
     //using LS = Dune::PDELab::ISTLBackend_SEQ_SUPERLU;
     //using LS = Dune::PDELab::ISTLBackend_SEQ_LOOP_Jac;    
@@ -187,7 +187,7 @@ int main(int argc, char** argv)
 
     // ##### variation point #####
     // ### select solver
-    //VARIATIONPOINT(SLP; using ; SLP; Dune::PDELab::StationaryLinearProblemSolver<GO, LS, U>;)
+    //VARIATIONPOINT(SLP; using SLP; Dune::PDELab::StationaryLinearProblemSolver<GO, LS, U>;)
     using SLP = Dune::PDELab::StationaryLinearProblemSolver<GO, LS, U>;
     //using SLP = Dune::PDELab::Newton<GO, LS, U, U>;
 
