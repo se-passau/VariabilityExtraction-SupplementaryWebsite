@@ -1,7 +1,7 @@
 XML_PATH ./doxygen_documentation.xml
 DEBUG_PATH ./DebugOutput/
 
-MAIN_FILE_DUNE_APPLICATION ./dune-spl/test/diffusion.cc
+MAIN_FILE_DUNE_APPLICATION ./test/diffusion.cc
 BASE_DIR_DUNE_APPLICATION ./dune-spl/
 
 BASE_DIR_DUNE_APPLICATION_MINI_VERSION ./dune-spl-mini-generated/

@@ -42,11 +42,11 @@ namespace Dune
 
             varPoints = parseApplicationMainClass(Program.BASE_DIR_DUNE_APPLICATION_MINI_VERSION + Program.MAIN_FILE_DUNE_APPLICATION);
 
-            constraints = parseConstraintFile(constraintFile);
+            //constraints = parseConstraintFile(constraintFile);
 
             findAlternatives(varPoints);
 
-            applyConstraints(varPoints, constraints);
+            //applyConstraints(varPoints, constraints);
 
         }
 
