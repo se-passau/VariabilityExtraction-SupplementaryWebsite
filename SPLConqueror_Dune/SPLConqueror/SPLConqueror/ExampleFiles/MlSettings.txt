@@ -1,5 +1,0 @@
-abortError 0.001
-lossFunction RELATIVE
-crossValidation FALSE
-numberOfRounds 25
-quadraticFunctionSupport TRUE
