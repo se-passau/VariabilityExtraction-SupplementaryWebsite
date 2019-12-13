@@ -29,8 +29,13 @@ RUN git clone --depth=1 https://github.com/se-passau/VariabilityExtraction-Suppl
     && msbuild /p:Configuration=Release /p:TargetFrameworkVersion="v4.5" /p:TargetFrameworkProfile="" /p:ReferencePath=/application/VariabilityExtraction-SupplementaryWebsite/SPLConqueror_Dune/SPLConqueror/SPLConqueror/SPLConqueror/bin/Release/ ./DuneAnalyzer.sln \
     && cd .. \
     && mkdir DebugOutput \
-    && mkdir Results
+    && mkdir Results_linearsolver \
+    && mkdir Results_ellipticproblem
 
-# Now, run the DuneAnalyzer
+# Execute VORM on the linearsolver
 RUN cd /application/VariabilityExtraction-SupplementaryWebsite/SPLConqueror_Dune/ \
-    && mono /application/VariabilityExtraction-SupplementaryWebsite/SPLConqueror_Dune/DuneAnalyzer/DuneAnalyzer/bin/Release/DuneAnalyzer.exe /application/VariabilityExtraction-SupplementaryWebsite/SPLConqueror_Dune/DuneAnalyzerStartFile.txt; exit 0
+    && mono /application/VariabilityExtraction-SupplementaryWebsite/SPLConqueror_Dune/DuneAnalyzer/DuneAnalyzer/bin/Release/DuneAnalyzer.exe /application/VariabilityExtraction-SupplementaryWebsite/SPLConqueror_Dune/linearsolver.txt; exit 0
+
+# Now, run the VORM on the ellipticproblem
+RUN cd /application/VariabilityExtraction-SupplementaryWebsite/SPLConqueror_Dune/ \
+    && mono /application/VariabilityExtraction-SupplementaryWebsite/SPLConqueror_Dune/DuneAnalyzer/DuneAnalyzer/bin/Release/DuneAnalyzer.exe /application/VariabilityExtraction-SupplementaryWebsite/SPLConqueror_Dune/ellipticproblem.txt; exit 0

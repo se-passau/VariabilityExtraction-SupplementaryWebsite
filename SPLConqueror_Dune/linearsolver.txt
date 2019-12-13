@@ -1,0 +1,14 @@
+XML_PATH ./doxygen_documentation.xml
+DEBUG_PATH ./DebugOutput/
+
+MAIN_FILE_DUNE_APPLICATION ./test/diffusion.cc
+BASE_DIR_DUNE_APPLICATION ./dune-istl/
+
+BASE_DIR_DUNE_APPLICATION_MINI_VERSION ./dune-istl-mini-generated/
+
+CONSTRAINT_FILE ./constraintFile.txt
+RESULT_DIR ./Results_linearsolver/
+
+MINI_FILE_LOCATION ./dune-istl-mini-generated/test/minifile.mini
+
+NEW_C_MAKE_LISTS ./dune-istl-mini-generated/test/CMakeLists.txt
