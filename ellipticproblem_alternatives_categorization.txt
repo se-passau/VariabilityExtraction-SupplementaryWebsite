@@ -1,0 +1,78 @@
+diffusion
+
+Variation point: Dune::GeometryType::cube -- 3
+	Dune::GeometryType::simplex ok
+	Dune::GeometryType::pyramid -- 1
+	Dune::GeometryType::prism -- 1
+	Dune::GeometryType::extended -- 1
+	Dune::GeometryType::none -- 1
+
+Variation point: Dune::YaspGrid<dim,Coordinates>
+	Dune::YaspGrid<dim,Coordinates> ok
+	Dune::GridDefaultImplementation<dim, dimworld, ct, GridFamily> -- abstract superclass; true false positive
+	Dune::AlbertaGrid<dim, dimworld> ok
+	Dune::IdentityGrid<class HostGrid> -- 2
+	Dune::OneDGrid ok
+	Dune::UGGrid<dim> ok
+
+Variation point: Dune::PDELab::QkLocalFiniteElementMap<GV, GV::ctype, Real, degree>;
+	Dune::PDELab::PkLocalFiniteElementMap<GV, GV::ctype, Real, degree> ok
+	Dune::PDELab::QkLocalFiniteElementMap<GV, GV::ctype, Real, degree> ok
+	Dune::PDELab::QkDGLocalFiniteElementMap<class D,class R, degree,??d??> ok
+	Dune::PDELab::OPBLocalFiniteElementMap< GV::ctype, Real, degree,??d??,??bt??,R,PB::BasisType::Pk> ok
+	
+	Dune::PDELab::BDM1Cube2DLocalFiniteElementMap<GV, GV::ctype, Real> -- 2 (makes semantically no sense, but syntactically)
+	Dune::PDELab::BDM1Simplex2DLocalFiniteElementMap<GV, GV::ctype, Real> -- 2 (only makes sense on 1 dimensional grids)
+	
+	Dune::PDELab::fem::PkLocalFiniteElementMapBase<GV, GV::ctype, Real, degree,??d??> -- (should not be found, since it is a base class)
+	Dune::PDELab::fem::PkLocalFiniteElementMapBase<GV, GV::ctype, Real, degree,1> -- (should not be found, since it is a base class)
+	Dune::PDELab::fem::PkLocalFiniteElementMapBase<GV, GV::ctype, Real, degree,2> -- (should not be found, since it is a base class)
+	Dune::PDELab::fem::PkLocalFiniteElementMapBase<GV, GV::ctype, Real, degree,3> -- (should not be found, since it is a base class)
+	Dune::PDELab::SimpleLocalFiniteElementMap<??Imp??,-1> -- (should not be found, since it is a base class)
+
+	Dune::PDELab::RannacherTurekLocalFiniteElementMap<class D,class R,??d??> -- forgotten by domain expert
+	Dune::PDELab::RT0Cube2DLocalFiniteElementMap<GV, GV::ctype, Real> -- 2
+	Dune::PDELab::RT0Cube3DLocalFiniteElementMap<GV, GV::ctype, Real> -- 2 (vector function)
+	
+	Dune::PDELab::RT0Simplex2DLocalFiniteElementMap<GV, GV::ctype, Real> -- 2
+	Dune::PDELab::RT1Cube2DLocalFiniteElementMap<GV, GV::ctype, Real> -- 2
+	Dune::PDELab::RT1Cube3DLocalFiniteElementMap<GV, GV::ctype, Real> -- 2
+	Dune::PDELab::RT1Simplex2DLocalFiniteElementMap<GV, GV::ctype, Real> -- 2
+	Dune::PDELab::RT2Cube2DLocalFiniteElementMap<GV, GV::ctype, Real> -- 2
+	
+	Dune::PDELab::EdgeS0LocalFiniteElementMap<GV,FE,Imp> -- 2
+	Dune::PDELab::LocalFiniteElementMapInterface<??T??,??Imp??>?? --> this is new
+	Dune::PDELab::MimeticLocalFiniteElementMap<IIS, GV::ctype, Real,??dim??> -- 2
+	Dune::PDELab::RTLocalFiniteElementMap<GV,??FE??,??Imp??,??Variants??> -- 2
+
+	
+	
+Variation point: Dune::PDELab::NoConstraints
+	Dune::PDELab::NoConstraints
+
+Variation point: Dune::PDELab::ISTLBackend_SEQ_CG_ILU0;
+	Dune::PDELab::ISTLBackend_SEQ_CG_ILU0 ok
+	Dune::PDELab::ISTLBackend_SEQ_BCGS_Jac ok
+	Dune::PDELab::ISTLBackend_SEQ_BCGS_SSOR ok
+	Dune::PDELab::ISTLBackend_SEQ_CG_Jac ok
+	Dune::PDELab::ISTLBackend_SEQ_CG_SSOR ok
+	Dune::PDELab::ISTLBackend_SEQ_LOOP_Jac ok
+	Dune::PDELab::ISTLBackend_SEQ_MINRES_SSOR ok
+	Dune::PDELab::ISTLBackend_SEQ_SuperLU ok
+	-- Dune::PDELab::ISTLBackend_SEQ_CG_AMG_SSOR -- Bug in DUNE; we don't find this class
+		
+    Dune::PDELab::ISTLBackend_SEQ_BCGS_ILU0?? 
+
+	Dune::PDELab::ISTLBackend_SEQ_CG_ILUn -- forgotten
+	Dune::PDELab::ISTLBackend_SEQ_GMRES_ILU0 -- forgotten
+	Dune::PDELab::ISTLBackend_SEQ_UMFPack -- forgotten
+	Dune::PDELab::ISTLBackend_SEQ_BCGS_ILUn -- forgotten
+	Dune::PDELab::ISTLBackend_SEQ_ILU0 < ??Solver??> -- abstract superclass
+	Dune::PDELab::ISTLBackend_SEQ_ILUn < ??Solver??> -- abstract superclass
+	Dune::PDELab::ISTLBackend_SEQ_Base < ??Preconditioner??,??Solver??> -- abstract superclass
+	Dune::PDELab::LinearResultStorage -- (something completely different)
+	Dune::PDELab::SequentialNorm -- (something completely different)
+	Dune::PDELab::ISTLBackend_SEQ_ExplicitDiagonal -- 2 (implements the interface but doesn't solve anything)
+
+Variation point: Dune::PDELab::StationaryLinearProblemSolver<GO, LS, U>
+	Dune::PDELab::StationaryLinearProblemSolver<GO, LS, U>

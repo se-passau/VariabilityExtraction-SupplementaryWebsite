@@ -1,0 +1,48 @@
+multirhstest
+
+Variation point: Dune::LoopSolver<Vector>
+	Dune::LoopSolver<Vector> ok
+	+Dune::IterativeSolver<X, Y> -- true false positive
+	Dune::BiCGSTABSolver<X> ok
+	Dune::CGSolver<X> ok
+	Dune::GeneralizedPCGSolver<X> ok
+ 	Dune::GradientSolver<X> ok
+	Dune::MINRESSolver<class X> ok
+	Dune::RestartedGMResSolver<X, Y,Y> ok
+	Dune::InverseOperator<X, Y>?? --> this is new
+
+Variation point: Dune::SeqJac<Matrix,Vector,Vector>
+	Dune::SeqJac<Matrix,Vector,Vector,l> ok
+	Dune::SeqGS<Matrix,Vector,Vector,l> ok
+	Dune::SeqILU<Matrix,Vector,Vector,l> ok
+	Dune::SeqILU0<Matrix,Vector,Vector,l> ok
+	Dune::SeqILUn<Matrix,Vector,Vector,l> ok
+	Dune::SeqSOR<Matrix,Vector,Vector,l> ok
+	Dune::SeqSSOR<Matrix,Vector,Vector,l> ok
+	
+	Dune::SeqILDL<class M,class X,class Y> -- forgotten
+	Dune::ILUSubdomainSolver<class M,class X,class Y> -- forgotten
+	Dune::Amg::TwoLevelMethod<class FO,class CSP,class S> -- forgotten
+	
+	Dune::PDELab::NonoverlappingJacobi<A,Vector,Vector> -- true false positive
+	Dune::Preconditioner<Vector,Vector> -- abstrakte Oberklasse; true false positive	
+	Dune::PDELab::NonoverlappingRichardson<class GFS,class X,class Y> -- true false positive
+	
+	Dune::BlockPreconditioner<Vector,Vector,??C??,Preconditioner<X,Y>> -- 2
+	Dune::Amg::AMG<??M??,X,??S??,SequentialInformation,std::allocator<X>> -- 2
+	Dune::Amg::FastAMG<class M,class X,SequentialInformation,std::allocator<X>> -- 2
+	Dune::InverseOperator2Preconditioner<class O,-1> -- 2
+	Dune::Amg::KAMG<class M,class X,class S,SequentialInformation,GeneralizedPCGSolver<X>,std::allocator<X>> -- 2
+	Dune::Amg::KAmgTwoGrid<class AMG> -- 2
+	Dune::Richardson<class X,class Y> -- 2
+	Dune::NonoverlappingBlockPreconditioner<??C??,??P??> -- 2
+	Dune::SeqOverlappingSchwarz<??M??,X,AdditiveSchwarzMode,ILU0SubdomainSolver<M,X,X>,std::allocator<X>> -- 2
+	
+	Dune::PDELab::OverlappingWrappedPreconditioner<class CC,class GFS,class P> -- true false positive
+	Dune::PDELab::UMFPackSubdomainSolver<class GFS,class M,class X,class Y> -- true false positive	
+	Dune::PDELab::SuperLUSubdomainSolver<class GFS,class M,class X,class Y> -- true false positive	
+	Dune::PDELab::OvlpDGAMGPrec<class DGGFS,class DGMatrix,class DGPrec,class DGCC,class CGGFS,class CGPrec,class CGCC,class P,class DGHelper,class Comm> -- true false positives
+	Dune::PDELab::RestrictedSuperLUSubdomainSolver<class GFS,class M,class X,class Y> -- true false positive
+	Dune::PDELab::SeqDGAMGPrec<class DGMatrix,class DGPrec,class CGPrec,class P> -- true false positive
+
+	Dune::ParSSOR<Matrix,Vector,Vector,??C??>?? --> this is new

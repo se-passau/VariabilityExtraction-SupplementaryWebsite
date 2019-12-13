@@ -1,0 +1,34 @@
+
+---------------------------------------------------------
+--Variantpoint:Solver
+
+Input:Dune::RestartedGMResSolver<Vector,X,Y>
+Alternatives:
+    Dune::RestartedGMResSolver<Vector,X,Y>
+	
+Input: Dune::LoopSolver<Vector>
+Alternatives:
+    Dune::BiCGSTABSolver<Vector>
+    Dune::CGSolver<Vector>
+    Dune::GeneralizedPCGSolver<Vector>
+    Dune::GradientSolver<Vector>
+    Dune::MINRESSolver<class X>
+
+	
+RestartedGMResSolver not found due to different number of template paramters with default value.
+
+----------------------------------------------------------
+--VariantPoint:Precon
+
+Input: Dune::SeqJac<Matrix,Vector,Vector,l>
+Alternatives:
+    Dune::SeqJac<Matrix,Vector,Vector,l>
+    Dune::Richardson<class X,class Y>
+    Dune::SeqGS<Matrix,Vector,Vector,l>
+    Dune::SeqILU<Matrix,Vector,Vector,l>
+    Dune::SeqILU0<Matrix,Vector,Vector,l>
+    Dune::SeqILUn<Matrix,Vector,Vector,l>
+    Dune::SeqSOR<Matrix,Vector,Vector,l>
+    Dune::SeqSSOR<Matrix,Vector,Vector,l>
+
+All alternatives found.
