@@ -7,7 +7,7 @@ BASE_DIR_DUNE_APPLICATION ./dune-spl/
 BASE_DIR_DUNE_APPLICATION_MINI_VERSION ./dune-spl-mini-generated/
 
 CONSTRAINT_FILE ./constraintFile.txt
-RESULT_DIR ./Results/
+RESULT_DIR ./Results_ellipticproblem/
 
 MINI_FILE_LOCATION ./dune-spl-mini-generated/test/minifile.mini
 
