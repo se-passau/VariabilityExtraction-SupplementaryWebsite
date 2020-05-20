@@ -4,7 +4,7 @@ Authors: Alexander Grebhahn, Christian Kaltenecker, Christian Engwer, Norbert Si
 
 Journal: Empirical Software Engineering
 
-Corresponding Author: Christian Kaltenecker (Saarland University, kaltenec@cs.uni-saarland.de)
+Corresponding Author: Alexander Grebhahn (adesso SE, Alexander.Grebhahn@adesso.de)
 
 This repository contains the supplemental material for the paper 'Lightweight, Semi-Automatic Variability Extraction: A Case Study on Scientific Computing'.
 In particular, the supplemental material consists of the following:
