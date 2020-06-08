@@ -21,7 +21,6 @@ Variation point: Dune::SeqJac<Matrix,Vector,Vector>
 	Dune::SeqSSOR<Matrix,Vector,Vector,l> --  true positive 
 	Dune::SeqILDL<class M,class X,class Y> -- true positive but not proposed by domain expert
 	
-	Dune::ILUSubdomainSolver<class M,class X,class Y> -- generally appicable 
 	Dune::Amg::TwoLevelMethod<class FO,class CSP,class S> -- generally appicable 
 	Dune::BlockPreconditioner<Vector,Vector,??C??,Preconditioner<X,Y>> -- generally appicable 
 	Dune::Amg::AMG<??M??,X,??S??,SequentialInformation,std::allocator<X>> -- generally appicable 
@@ -34,6 +33,7 @@ Variation point: Dune::SeqJac<Matrix,Vector,Vector>
 	Dune::SeqOverlappingSchwarz<??M??,X,AdditiveSchwarzMode,ILU0SubdomainSolver<M,X,X>,std::allocator<X>> -- generally appicable 
 	Dune::ParSSOR<Matrix,Vector,Vector,??C??>?? -- generally appicable 
 	
+	Dune::ILUSubdomainSolver<class M,class X,class Y> -- true false positive
 	Dune::PDELab::NonoverlappingJacobi<A,Vector,Vector> -- true false positive
 	Dune::Preconditioner<Vector,Vector> -- abstrakte Oberklasse; true false positive	
 	Dune::PDELab::NonoverlappingRichardson<class GFS,class X,class Y> -- true false positive
