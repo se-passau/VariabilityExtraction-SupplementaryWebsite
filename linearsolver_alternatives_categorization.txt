@@ -19,8 +19,8 @@ Variation point: Dune::SeqJac<Matrix,Vector,Vector>
 	Dune::SeqILUn<Matrix,Vector,Vector,l> --  true positive 
 	Dune::SeqSOR<Matrix,Vector,Vector,l> --  true positive 
 	Dune::SeqSSOR<Matrix,Vector,Vector,l> --  true positive 
+	Dune::SeqILDL<class M,class X,class Y> -- true positive but not proposed by domain expert
 	
-	Dune::SeqILDL<class M,class X,class Y> -- generally appicable 
 	Dune::ILUSubdomainSolver<class M,class X,class Y> -- generally appicable 
 	Dune::Amg::TwoLevelMethod<class FO,class CSP,class S> -- generally appicable 
 	Dune::BlockPreconditioner<Vector,Vector,??C??,Preconditioner<X,Y>> -- generally appicable 
